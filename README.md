@@ -7,7 +7,9 @@ Socket Server Demos and Slides from JQueryTO.
 A web framework for handling socket requests and incorporating second screen experiences into your applications.
 
 ##Slides
-Here is a link to my [presentation slides](http://ss.theyoungastronauts.com/slides/).
+Here is a link to my interative [presentation slides](http://ss.theyoungastronauts.com/slides/).
+And here are my slides in [PDF form](http://files.theyoungastronauts.com/share/jQueryto2014-TylerSavery-SecondScreen-slides.pdf
+)
 
 ##Demos
 Here is a link to the [live demos](http://ss.theyoungastronauts.com/).
