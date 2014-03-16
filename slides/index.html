@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Slides: The Second Screen | Tyler Savery | @jQueryTO 2014</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section  data-background="#000">
+					<h1 style="color:#666">The Second Screen</h1>
+					<h3>Tyler Savery | jQueryTO 2014</h3>
+					<p >
+						<small><a href="http://twitter.com/tylersavery" target="_blank">@tylersavery</a> | <a href="http://theyoungastronauts.com" target="_blank">theyoungastronauts.com</a></small>
+					</p>
+				</section>
+
+				<section data-transition="linear" data-background-transition="slide">
+					<h2>About Me</h2>
+					<img src="http://jqueryto.com/assets/img/speaker-savery.jpg" height="150" />
+					<img src="http://jqueryto.com/assets/img/org-astronauts.png" />
+					<p style="font-size:85%">
+						I'm a full stack developer, running a production shop called<br/>The Young Astronauts.
+					</p>
+					<p style="font-size:75%">
+						I love Javascript, PHP, Objective-C, and sometimes even CSS.
+					</p>
+
+					<p style="font-size:65%">
+						My favorite part coding is finding ways to improve my workflow.
+					</p>
+
+					<p style="font-size:50%">
+						My life would be terrible without JSON.
+					</p>
+
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+					</aside>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>What is "Second Screen"</h2>
+						<p>
+							
+						</p>
+						<a href="#" class="image navigate-down" style="color:black; font-size:300%; text-decoration:none; top:0.5em;">
+							?
+						</a>
+					</section>
+					<section>
+						<h2>From Wikipedia</h2>
+						<p>The second screen refers to the use of a computing device (commonly a mobile device, such as a tablet or smartphone) to provide an enhanced viewing experience for content on another device, such as a television.</p>
+					</section>
+					<section>
+						<h2>Some Examples</h2>
+						<div class="example-col">
+							<p>Nitrome</p>
+							<a  href="http://www.nitrome.com/" target="_blank">
+								<img src="http://upload.wikimedia.org/wikipedia/en/d/d7/Nitrome_logo_pink.png" >
+							</a>
+						</div>
+
+						<div class="example-col">
+							<p>Timeplay</p>
+							<a  href="http://timeplay.com" target="_blank">
+								<img src="http://cdn.iphoneincanada.ca/wp-content/uploads/2013/01/cineplex-timeplay.jpg">
+							</a>
+						</div>
+						
+						<div class="example-col">
+							<p>Apple TV</p>
+							<a  href="#">
+								<img src="http://cdn.gottabemobile.com/wp-content/uploads/2013/03/Connecting-Apple-TV-323x575.jpeg" >
+							</a>
+						</div>
+						<div class="example-col">
+							<p>YA Site</p>
+							<a href="http://theyoungastronauts.com/interactive/second-screen-gaming" target="_blank">
+								<img src="img/spaceinvaders.png" >
+							</a>
+						</div>
+					</section>
+					<section>
+						<h2>Technology</h2>
+						<p>Although there are many unique ways to achieve second screen tech, we will be writing it in Javascript.</p>
+						<p class="fragment">Client Side: Javascript + jQuery</p>
+						<p class="fragment">Server Side: NodeJS</p>
+						<p class="fragment">Framework: <a href="https://github.com/learnboost/socket.io" target="_blank">SocketIO</a></p>
+						
+					</section>
+					<section>
+						<h2>Other Technologies</h2>
+						<ul>
+						<li class="fragment">NodeJS: WebSocket-Node, WS</li>
+						<li class="fragment">Java: Jetty</li>
+						<li class="fragment">Ruby: EventMachine</li>
+						<li class="fragment">Python: Tornado</li>
+						<li class="fragment">C++: libwebsockets</li>
+						<li class="fragment">.NET: SuperWebSocket</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>A History of Sockets</h2>
+						<p>
+							Where did they come from? Why do we need them?
+						</p>
+					</section>
+					<section>
+						<h2>The HTTP Request Model</h2>
+						<p>
+							<ul>
+							<li class="fragment">Browser requests page</li>
+							<li class="fragment">Server "compiles" html output</li>
+							<li class="fragment">Server sends response</li>
+							<li class="fragment">Browser loads webpage data</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<h2>Ajax</h2>
+						<p>
+							<ul>
+							<li class="fragment">Javascript messages server</li>
+							<li class="fragment">Server sends response</li>
+							<li class="fragment">Javascript works with response</li>
+							<li class="fragment">DOM is updated</li>
+							<li class="fragment">JS could poll server every X seconds to seem sockety</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<h2>Long Polling</h2>
+						<p>
+							<ul>
+							<li class="fragment">For example "Comet"</li>
+							<li class="fragment">An illusion of a server initialized connection</li>
+							<li class="fragment">Client opens an HTTP connection to server</li>
+							<li class="fragment">Keeps it open until sending response</li>
+							<li class="fragment">Still used (IE: Gmail Chat)</li>
+							<li class="fragment">Performance Heavy</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<h2>Web Sockets</h2>
+						<p>
+							<ul>
+								<li class="fragment">Browser can message Server at any point</li>
+								<li class="fragment">Server can message Browser at any point</li>
+								<li class="fragment">Persistent connection between the client and the server</li>
+	
+							</ul>
+							<div class="fragment">
+							<p>&nbsp;</p>
+							<p>Woot!</p>
+							<p>&nbsp;</p>
+							<p>Now we can think differently as application developers.</p>
+							</div>
+
+						</p>
+					</section>
+				</section>
+
+<section>
+<section>
+
+<h2>Code: </h2>
+<h3>Mobile |~~| Server |~~| Desktop</h3>
+
+
+</section>
+<section>
+<h2>Mobile</h2>
+
+
+<pre><code style="max-height:600px">
+var socket = io.connect('http://localhost:7777');
+
+socket.on('msg', function(message){
+  if(message.sender != 'mobile'){
+    if(message.action == 'hello'){
+      alert(message.value);
+    }
+  }
+});
+
+$("#submit").click(function(){
+  var data = {
+    sender: 'mobile',
+    action: 'hello',
+    value: $("textarea").val()
+  }
+  socket.emit('msg', data);
+});
+
+</code></pre>
+
+				
+</section>
+
+<section>
+<h2>Server</h2>
+
+
+<pre><code style="max-height:600px">
+var io = require('socket.io').listen(7777);
+
+io.sockets.on('connection', function (socket) {
+	var room = "jqueryto";
+	socket.join(room);
+
+	io.sockets.in(room).emit('newGuest', { });
+	socket.broadcast('newNeighbor'. { });
+
+	socket.on('msg', function (message) {
+	    io.sockets.in(room).emit('msg', {
+	    	sender: message.sender,
+	        action: message.action,
+	        value: message.value
+	    });
+	});
+});
+</code></pre>
+
+				
+</section>
+
+<section>
+<h2>Desktop</h2>
+
+
+<pre><code style="max-height:600px">
+var socket = io.connect('http://localhost:7777');
+
+socket.on('msg', function(message){
+  if(message.sender != 'desktop'){
+    if(message.action == 'hello'){
+      alert(message.value);
+    }
+  }
+});
+
+$("#submit").click(function(){
+  var data = {
+    sender: 'desktop',
+    action: 'hello',
+    value: $("textarea").val()
+  }
+  socket.emit('msg', data);
+});
+
+</code></pre>
+
+				
+</section>
+
+</section>
+
+				<section>
+					<section>
+					<h2>First Demo</h2>
+					<p>
+						It's time for a demo. <strong>Be exicted</strong>.
+					</p>
+					<p style="font-size:50%;">
+						A simple light switch to change our skyline from day to night.
+					</p>
+					<p>&nbsp;</p>
+					<p><a href="http://ss.theyoungastronauts.com/demos/simple-demo/" target="_blank">Simple Switch</a></p>
+					</section>
+					<section>
+						<p>So what's going on here?</p>
+					</section>
+					<section>
+						<p>3 Components:</p>
+						<ul>
+							<li>Mobile Client Application</li>
+							<li>Server Side Application</li>
+							<li>Desktop Client Application</li>
+						</ul>
+					</section>
+					<section>
+						<h2>1. Mobile Client</h2>
+						<pre><code data-trim contenteditable class="javascript">
+App.Run = function(){
+
+  $(".switch").on('click', function(e){
+    e.preventDefault();
+
+    if($(this).hasClass('checked')){
+      $(this).removeClass('checked');
+      App.Socket.emit('toggle', { state: false});
+    } else {
+      $(this).addClass('checked');
+      App.Socket.emit('toggle', { state: true});
+    }
+
+  });
+
+};
+						</code></pre>
+
+					</section>
+					<section>
+						<h2>2. Server Side</h2>
+						<pre><code data-trim contenteditable class="javascript">
+socket.on('msg', function (message) {
+  App.io.sockets.in(App.roomName).emit('msg', {
+    sender: message.sender,
+    action: message.action,
+    value: message.value
+  });
+});
+						</code></pre>
+
+					</section>
+					<section>
+						<h2>3. Desktop Client</h2>
+						<pre><code data-trim contenteditable class="javascript">
+App.Run = function(){
+
+  App.Socket.on('toggle', function(data){
+    if(data.state == true){
+      $(".day").css('opacity', 1);
+      $(".night").css('opacity', 0);
+    } else {
+      $(".day").css('opacity', 0);
+      $(".night").css('opacity', 1);
+    }
+  });
+
+}
+
+						</code></pre>
+
+					</section>
+
+
+				</section>
+
+				<section>
+					<section>
+					<h2>Is that all the code?</h2>
+					<p>
+						No. There is more. Let me walk you through all the pieces.
+					</p>
+					<p style="font-size:50%">Note: It's time to pull up Sublime 3</p>
+					<p style="font-size:30%">app.js | simple-demo/index.php | simple-demo/mobile.js | simple-demo/desktop.js | shared/mobile.js | shared/desktop.js</p>
+					</section>
+					<section>
+						<h2>What the hell? PHP?</h2>
+						<ul>
+							<li>Wanted to show you code in a simple way</li>
+							<li>We <em>can</em> be flexible</li>
+							<li>This isn't a backend conference</li>
+							<li>Of course, I could have built this all in Node with Express</li>
+							<li>Easier to integrate into already existing website</li>
+
+							<li>Deal with it.</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Second Screen Framework</h2>
+						<p style="font-size:70%">
+							There are a whole bunch of socket frameworks. I've built a second screen framework.
+						</p>
+						<p style="font-size:50%">
+							It includes mostly everything you need to quickly deploy second screen apps, including:
+						</p>
+						<ul>
+							<li>Passcode Authentication</li>
+							<li>Agnostic server side component</li>
+							<li>Capture usernames</li>
+							<li>Handles the mobile and desktop UI in one file</li>
+							<li>Files are included in an organized fasion. #workflow</li>
+						</ul>
+						<p>&nbsp;</p>
+						<p style="font-size:50%"><strong>disclaimer</strong>: this is still very much a work in progress, built mainly for this talk. Interested? </p>
+						<p>Fork it on Github</p>
+						<p>&nbsp;</p>
+
+					</section>
+					<section>
+						<h2>How does one run a Node App?</h2>
+						<ul>
+							<li>NodeJS is Javascript running on the server</li>
+							<li>What? I thought Javascript runs in the browser?</li>
+							<li>Isomorphic Javascript (The Holy Grail)</li>
+							<li>Thanks Google: V8 Engine</li>
+							<li>NPM, Grunt/Gulp, Less, etc.</li>
+							<pre><code data-trim contenteditable>$ node app.js</code></pre>
+							<pre><code data-trim contenteditable>$ forever start app.js</code></pre>
+							<li>Restart* when you make changes</li>
+							<pre><code data-trim contenteditable>$ nodemon --debug app.js</code></pre>
+						</ul>
+					</section>
+					<!--
+					<section>
+						<h2>Ok - enough about backend!</h2>
+						<p>For now...</p>
+					</section>
+					-->
+				</section>
+
+
+				<section>
+					<h2>Keyword Review</h2>
+					<ul>
+						<li class="fragment">io</li>
+						<li class="fragment">listen</li>
+						<li class="fragment">io.sockets.on()</li>
+						<li class="fragment">socket.emit</li>
+						<li class="fragment">socket.broadcast</li>
+						<li class="fragment">socket.in(room).emit</li>
+					</ul>
+				</section>
+
+				<section>
+
+					<section>
+						<h2>More Demos!</h2>
+
+					</section>
+
+					<section>
+						<h2>Tilt a' Rubiks</h2>
+
+						<p>
+							<a href="/demos/tilt" target="_blank">Launch!</a>
+						</p>
+						
+					</section>
+
+					<section>
+						<h2>Draw Board</h2>
+						<h6>You're Invited</h6>
+						<p>
+							<a href="/demos/draw-board" target="_blank">Launch!</a>
+						</p>
+						
+					</section>
+
+					<section>
+						<h2>Closed Caption</h2>
+						<h6>Direction Swapp</h6>
+						<p>
+							<a href="/demos/closed-caption" target="_blank">Launch!</a>
+						</p>
+						
+					</section>
+
+					<section>
+						<h2>Classic Controller</h2>
+						<h6>Just for fun</h6>
+						<p>
+							<a href="/demos/classic-controller" target="_blank">Launch!</a>
+						</p>
+						
+					</section>
+
+					<section>
+						<h2>Trivia</h2>
+						<h6>Have you paid attention?</h6>
+						<p>
+							<a href="/demos/trivia" target="_blank">Launch!</a>
+						</p>
+						
+					</section>
+
+					
+					
+				</section>
+
+				<section>
+					<section>
+
+					<h2>Other Clients</h2>
+					<h6>HTML5 Only?</h6>
+
+					
+
+					</section>
+
+					<section>
+
+					<h2>There are other options!</h2>
+
+
+						<ul>
+							<li class="fragment"><a href="http://unity3d.com" target="_blank">Unity 3D</a></li>
+							<li class="fragment"><a href="https://developer.apple.com/technologies/ios/" target="_blank">Mobile App</a></li>
+							<li class="fragment"><a href="https://developer.apple.com/librarY/mac/referencelibrary/GettingStarted/RoadMapOSX/chapters/01_Introduction.html" target="_blank">Mac/PC App</a></li>
+							<li class="fragment"><a href="https://www.ouya.tv/develop/" target="_blank">Console</a></li>
+							<li class="fragment"><a href="http://timeplay.com/" target="_blank">Movie Theatre</a></li>
+							<li class="fragment"><a href="http://arduino.cc/" target="_blank">Arduino</a></li>
+						</ul>
+
+					</section>
+
+					<section>
+
+					<h2>Arduino you say?</h2>
+					<p>
+						<video id="arduino-video" width="400" style="-webkit-transform:rotate(90deg); margin-top:100px">
+						<source src="video/arduino.webm" type="video/webm" />
+						<source src="video/arduino.mov" type="video/mp4" />
+						</video>
+
+						<br />
+
+					
+						<a href="#" style="font-size:50%" onclick="document.getElementById('arduino-video').play(); return false;">Play</a>
+					</p>
+
+					</section>
+
+					<section>
+
+					<h2>Classic Controller<strong>+</strong></h2>
+					<p>
+						<a href="/demos/classic-controller" target="_blank">Launch!</a>
+					</p>
+
+					</section>
+
+				</section>
+
+
+				<section data-background="#57a698" data-transition="linear">
+					<h2>Conclusion</h2>
+					<p>
+						The second screen is here.
+					</p>
+					<p>
+						What about the Third Screen?
+					</p>
+					<p>
+						Entertainment | Engagement | Education
+					</p>
+					<p style="font-size:50%">
+						<a style="color:#fff" href="http://mashable.com/2013/10/09/disney-ipad-second-screen/" target="blank">Little Mermaid</a> | 
+						<a style="color:#fff" href="http://mashable.com/2014/02/03/chromecast-sdk/" target="blank">ChromeCast</a> | 
+
+						
+						<a style="color:#fff" href="http://mashable.com/2013/11/06/i-tv-acquires-getglue/" target="blank">GetGlue</a>
+
+						<a style="color:#fff" href="http://www.amctv.com/shows/the-walking-dead/story-sync" target="blank">Walking Dead</a> | 
+
+						<a style="color:#fff" href="http://teamcoco.com/togo" target="blank">CoCo</a> | 
+
+						<a style="color:#fff" href="http://www.shazam.com/" target="blank">Shazam</a>
+					</p>
+				</section>
+
+				<section data-background="#000" data-transition="linear">
+					<h1 style="color:#fff">THE END</h1>
+					<h3 style="color:#666">Q/A</h3>
+					<p><small><a href="http://twitter.com/tylersavery" target="_blank">@tylersavery</a> | <a href="http://theyoungastronauts.com" target="_blank">theyoungastronauts.com</a></small></p>
+				</section>
+
+				
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+		var dependencies = [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js', async: true }
+				
+			];
+
+
+			var socketUrl = 'revealjs.jit.su:80';
+			var socketId = '7e48511eb57bc10b';
+
+			var multiplexOptions = {}
+
+			if( window.location.search.match( /master/gi ) ) {
+				multiplexOptions = {
+			        // Example values. To generate your own, see the socket.io server instructions.
+			        secret: '13948613763801555136', // Obtained from the socket.io server. Gives this (the master) control of the presentation
+			        id: socketId, // Obtained from socket.io server
+			        url: socketUrl // Location of socket.io server
+			    }
+
+			    dependencies.push({ src: 'plugin/multiplex/master.js', async: true });
+				dependencies.push({ src: 'plugin/multiplex/client.js', async: true });
+			    
+			} else {
+				multiplexOptions = {
+					secret: null,
+					id: socketId,
+					url: socketUrl
+				}
+				dependencies.push({ src: 'plugin/multiplex/client.js', async: true });
+			}
+
+			console.log(dependencies);
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				multiplex: multiplexOptions,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: dependencies
+			});
+
+		</script>
+
+	</body>
+</html>

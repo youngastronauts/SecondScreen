@@ -1,0 +1,8 @@
+canvas{
+	border:1px solid #000;
+}
+
+.tools a{
+	display: inline-block;
+	height: 20px;
+}

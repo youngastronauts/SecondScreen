@@ -1,0 +1,59 @@
+body{
+	font-family: sans-serif;
+}
+
+hr{
+	border:none;
+	height: 1px;
+	background-color: #ccc;
+}
+.game-info{
+	position: relative;
+}
+
+#newQuestionButton{
+	position: absolute;
+	right:0;
+	top:11px;
+	background-color: #4e9ac6;
+	padding: 6px;
+	color: #fff;
+	text-decoration: none;
+	font-family: sans-serif;
+	font-size: 16px;
+	border-radius: 2px;
+
+}
+
+#newQuestionButton:hover{
+	background-color: #F86054;
+}
+
+h3{
+	font-weight: bold;
+	color: #4e9ac6;
+	margin-bottom: 4px;
+}
+
+.question-content .question span{
+	text-align: center;
+	display: block;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	font-size: 40px;
+	font-style: italic;
+}
+
+.response-content ul li{
+	padding: 8px;
+	color: #fff;
+}
+
+.response-content ul li.right{
+	background-color: green;
+}
+
+.response-content ul li.wrong{
+	background-color: red;
+}
+

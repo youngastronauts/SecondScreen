@@ -1,0 +1,25 @@
+.day, .night{
+  width:573px;
+  height: 483px;
+  border:1px solid #000;
+  margin: 10px auto;
+  opacity: 0;
+  position: absolute;
+  left:50%;
+  margin-left: -280px;
+  top:100px;
+  background-position: center center;
+
+  transition:opacity 1s;
+}
+
+.night{
+  opacity: 1;
+  background: url(night.jpg);
+}
+
+.day{
+  opacity: 0;
+  background: url(day.jpg);
+}
+

@@ -1,0 +1,23 @@
+.question{
+	font-size: 20px;
+	text-align: center;
+	padding: 20px 10px;
+}
+
+ul.answers li{
+	display: block;
+	height: 50px;
+	width:90%;
+	line-height: 50px;
+	text-align: center;
+	font-size: 20px;
+	margin: 10px 0;
+	background-color: rgba(0,0,0,.4);
+	list-style:none;	
+
+}
+
+ul.answers li.selected{
+	background-color: #000;
+	color: #fff;
+}
