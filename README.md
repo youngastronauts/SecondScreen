@@ -1,10 +1,16 @@
 SecondScreen
 ============
 
-Socket Server Demos and Slides from JQueryTO
+Socket Server Demos and Slides from JQueryTO.
 
 ## Synopsis
 A web framework for handling socket requests and incorporating second screen experiences into your applications.
+
+##Slides
+Here is a link to my [presentation slides](http://ss.theyoungastronauts.com/slides/).
+
+##Demos
+Here is a link to the [live demos](http://ss.theyoungastronauts.com/).
 
 ##Installation
 1. Clone Repo
